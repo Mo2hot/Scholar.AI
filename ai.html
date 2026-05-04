@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>AI Study</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      background: #0d0d0d;
+      color: #ffd60a;
+      font-family: Arial, sans-serif;
+    }
+
+    .navbar {
+      background: #000 !important;
+    }
+
+    .navbar a, .navbar-brand {
+      color: #ffd60a !important;
+    }
+
+    .chat-box {
+      max-width: 800px;
+      margin: 60px auto;
+      background: #1a1a1a;
+      padding: 20px;
+      border-radius: 12px;
+    }
+
+    .input-box {
+      background: #111;
+      border: 1px solid #333;
+      color: white;
+    }
+
+    .btn-custom {
+      background: #ffd60a;
+      color: #000;
+      font-weight: bold;
+    }
+
+    .chat-log {
+      margin-top: 20px;
+      text-align: left;
+    }
+
+    .user {
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .ai {
+      color: #ffd60a;
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Scholar.AI</a>
+      <a href="subject.html">Subjects</a>
+    </div>
+  </nav>
+
+  <!-- Chat -->
+  <div class="chat-box text-center">
+    <h2>AI Study Assistant</h2>
+    <p class="text-secondary">Ask anything</p>
+
+    <input id="input" type="text" class="form-control input-box mt-3" placeholder="Ask a question...">
+
+    <button onclick="send()" class="btn btn-custom mt-3 w-100">
+      Send
+    </button>
+
+    <div id="chat" class="chat-log"></div>
+  </div>
+
+  <script>
+    function send() {
+      const input = document.getElementById("input");
+      const chat = document.getElementById("chat");
+
+      const text = input.value.trim();
+      if (!text) return;
+
+      chat.innerHTML += `<div class="user"><b>You:</b> ${text}</div>`;
+
+      const lower = text.toLowerCase();
+
+      let responses = [];
+
+      // --- SMARTER RESPONSES ---
+      if (lower.includes("math") || lower.includes("algebra") || lower.includes("equation")) {
+        responses = [
+          "Math is about patterns, numbers, and solving problems step by step.",
+          "Let’s break it down: identify variables first, then solve slowly.",
+          "A good trick in math is to simplify before solving."
+        ];
+      }
+      else if (lower.includes("science") || lower.includes("biology") || lower.includes("chemistry")) {
+        responses = [
+          "Science explains how the world works through observation and experiments.",
+          "Think of science as asking 'why' and testing answers.",
+          "In science, everything is based on evidence and experiments."
+        ];
+      }
+      else if (lower.includes("history")) {
+        responses = [
+          "History helps us understand how past events shaped today.",
+          "Focus on causes and effects — that's the key to history.",
+          "Every historical event connects to something bigger."
+        ];
+      }
+      else if (lower.includes("english") || lower.includes("essay")) {
+        responses = [
+          "A strong essay has a clear argument and supporting evidence.",
+          "Focus on structure: introduction, body, conclusion.",
+          "Good writing is about clarity and simplicity."
+        ];
+      }
+      else if (lower.includes("help")) {
+        responses = [
+          "Sure — tell me the topic and I’ll explain it step by step.",
+          "I can help with math, science, history, or writing.",
+          "What exactly are you stuck on?"
+        ];
+      }
+      else if (lower.includes("hello") || lower.includes("hi")) {
+        responses = [
+          "Hello! What are you studying today?",
+          "Hey! Need help with homework?",
+          "Hi! Ask me anything you want to learn."
+        ];
+      }
+      else {
+        responses = [
+          "I’m not fully sure, but try breaking your question into smaller parts.",
+          "Interesting question — can you give a bit more detail?",
+          "I can help more if you mention the subject you're studying."
+        ];
+      }
+
+      // Pick random response (this makes it feel REAL)
+      const reply = responses[Math.floor(Math.random() * responses.length)];
+
+      chat.innerHTML += `<div class="ai"><b>AI:</b> ${reply}</div>`;
+
+      input.value = "";
+    }
+
+    // Enter key support
+    document.getElementById("input").addEventListener("keypress", function(e) {
+      if (e.key === "Enter") send();
+    });
+  </script>
+
+</body>
+</html>

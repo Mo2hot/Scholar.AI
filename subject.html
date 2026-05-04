@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Subjects</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      background: #0d0d0d;
+      color: #ffd60a;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color: #000 !important;
+    }
+
+    .navbar a, .navbar-brand {
+      color: #ffd60a !important;
+      transition: 0.3s;
+    }
+
+    .navbar a:hover {
+      color: #fff !important;
+      text-shadow: 0 0 8px #ffd60a;
+    }
+
+    /* Title */
+    .title {
+      text-align: center;
+      margin-top: 40px;
+      margin-bottom: 30px;
+    }
+
+    /* Subject cards */
+    .subject-card {
+      background: #1a1a1a;
+      border: none;
+      color: #ffd60a;
+      border-radius: 12px;
+      padding: 40px 20px;
+      font-size: 1.2rem;
+      text-decoration: none;
+      display: block;
+      transition: 0.3s;
+      height: 100%;
+      position: relative;
+    }
+
+    .subject-card:hover {
+      transform: translateY(-8px);
+      background: #222;
+      color: #fff;
+      box-shadow: 0 0 15px rgba(255, 214, 10, 0.3);
+    }
+
+    /* Locked (Premium) */
+    .locked {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .locked::after {
+      content: "🔒 Premium";
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 0.8rem;
+      color: #fff;
+      background: #ff0000;
+      padding: 3px 8px;
+      border-radius: 10px;
+    }
+
+    /* Tag labels */
+    .tag {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      font-size: 0.75rem;
+      padding: 3px 8px;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    .ap-tag {
+      background: #ff0000;
+      color: #fff;
+    }
+
+    .college-tag {
+      background: #ffd60a;
+      color: #000;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Scholar.AI</a>
+
+      <div>
+        <a class="me-3" href="index.html">Home</a>
+        <a class="me-3" href="subject.html">Subject</a>
+        <a href="moreinfo.html">More Info</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Title -->
+  <h1 class="title">Choose a Subject</h1>
+
+  <div class="container pb-5">
+    <div class="row g-4">
+
+      <!-- FREE SUBJECTS -->
+      <div class="col-12">
+        <h3 class="text-center">📘 Free Subjects</h3>
+      </div>
+
+      <div class="col-md-4">
+        <a href="math.html" class="subject-card text-center">📊 Math</a>
+      </div>
+
+      <div class="col-md-4">
+        <a href="science.html" class="subject-card text-center">🔬 Science</a>
+      </div>
+
+      <div class="col-md-4">
+        <a href="english.html" class="subject-card text-center">📖 English</a>
+      </div>
+
+      <div class="col-md-4">
+        <a href="global.html" class="subject-card text-center">🌍 Global Studies</a>
+      </div>
+
+      <div class="col-md-4">
+        <a href="spanish.html" class="subject-card text-center">🗣️ Spanish</a>
+      </div>
+
+      <div class="col-md-4">
+        <a href="computer.html" class="subject-card text-center">💻 Computer Science</a>
+      </div>
+
+      <!-- PREMIUM SUBJECTS -->
+      <div class="col-12">
+        <h3 class="text-center mt-4">🔒 Premium Subjects (AP + College)</h3>
+      </div>
+
+      <!-- AP -->
+      <div class="col-md-4">
+        <div class="subject-card locked text-center">
+          📈 AP Calculus
+          <span class="tag ap-tag">AP</span>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="subject-card locked text-center">
+          ⚛️ AP Physics
+          <span class="tag ap-tag">AP</span>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="subject-card locked text-center">
+          🧬 AP Biology
+          <span class="tag ap-tag">AP</span>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="subject-card locked text-center">
+          🏛️ AP US History
+          <span class="tag ap-tag">AP</span>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="subject-card locked text-center">
+          📊 AP Statistics
+          <span class="tag ap-tag">AP</span>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="subject-card locked text-center">
+          💰 AP Economics
+          <span class="tag ap-tag">AP</span>
+        </div>
+      </div>
+
+      <!-- COLLEGE -->
+      <div class="col-md-4">
+        <div class="subject-card locked text-center">
+          📐 Linear Algebra
+          <span class="tag college-tag">College</span>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="subject-card locked text-center">
+          ⚙️ Engineering Mechanics
+          <span class="tag college-tag">College</span>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="subject-card locked text-center">
+          🧪 Organic Chemistry
+          <span class="tag college-tag">College</span>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="subject-card locked text-center">
+          🧠 Psychology 101
+          <span class="tag college-tag">College</span>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="subject-card locked text-center">
+          💻 Data Structures & Algorithms
+          <span class="tag college-tag">College</span>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="subject-card locked text-center">
+          📊 Microeconomics (College)
+          <span class="tag college-tag">College</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
